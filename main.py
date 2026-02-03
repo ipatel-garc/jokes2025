@@ -1,37 +1,51 @@
 
-
-
 # make this performance task ready for submission
 # To give the user a fun experience hearing knock knock jokes
 
-joke = input("Do you want to hear a joke? ")
-if joke == "no":
-    print("Okay suit yourself!")
-while joke == "yes":
-    print("Great, Let's Play")
-    question = input("Do you want to hear a joke about robbers, tanks, or pencils? ")
-    if question == "robbers":
-        input("Knock Knock ")
-        input("Calder")
-        print("Calder police - I've been robbed!")
-        joke = input("Do you want to hear another joke or are you finished? ")
-    elif question == "tanks":
-        input("Knock Knock ")
-        input("Tank ")
-        input("You are welcome! ")
-        joke = input("Do you want to hear another joke or are you finished? ")
-    elif question == "pencils":
-        input("Knock Knock ")
-        input("Broken pencil ")
-        input("Nevermind, it's pointless! ")
-        joke = input("Do you want to hear another joke or are you finished? ")
-if joke == "finished":
-    rate = int(input("Please rate our game 1-10! "))
-    final_score = int(rate * 10)
-    print(str(final_score) + " percent satisfaction rate")
-    friend = input("Would you recommend this game to a friend? ")
 
-    if friend == "yes" or friend == "maybe":
-        print("Thanks, we appreciate it. ")
+def question():
+    question = input("I am going to tell you a joke! Do you want to hear a joke about robbers, tanks, or pencils? ")
+    while question != "finished":
+        if question == "robbers":
+            input("Knock Knock ")
+            input("Calder")
+            print("Calder police - I've been robbed!")
+            question = input("What would you like to hear a joke about now? If your done, say finished.")
+        elif question == "tanks":
+            input("Knock Knock ")
+            input("Tank ")
+            print("You are welcome! ")
+            question = input("What would you like to hear a joke about now? If your done, say finished.")
+        elif question == "pencils":
+            input("Knock Knock ")
+            input("Broken pencil ")
+            print("Nevermind, it's pointless! ")
+            question = input("What would you like to hear a joke about now? If your done, say finished.")
+        if question == "finished":
+            return "Thank you so much"
+ 
+    
+
+list_score=[70,90,80,100]
+
+def score(list_score):
+    total=0
+    joke=input("Would you like to give feedback?")
+    if joke =="yes":
+        rate=int(input("Please rate our game 1-10!:"))
+        final_score= int(rate * 10)
+        list_score.append(final_score)
+        # print(list_score)
     else:
-        print("Sorry you did not enjoy it. ")
+         return "Thats fine. Thank you!"
+    for num in list_score:
+            total+=num
+            count=len(list_score)
+            average=total/count
+    return f"Our satisfaction average is now {average}! Thank you so much for your feedback!" 
+
+
+
+print(question())
+print(score(list_score))
+    
